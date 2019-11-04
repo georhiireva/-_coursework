@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F56FE95-5B6C-4915-93D4-2FF3CFD1A7D8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Coursework</RootNamespace>
+    <AssemblyName>Coursework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="commands\AbstractCommand.cs" />
+    <Compile Include="commands\AbstractSimpleCommand.cs" />
+    <Compile Include="commands\ExitCommand.cs" />
+    <Compile Include="commands\ICommand.cs" />
+    <Compile Include="commands\PersonAddCommand.cs" />
+    <Compile Include="commands\PersonDeleteCommand.cs" />
+    <Compile Include="commands\PersonEditCommand.cs" />
+    <Compile Include="commands\PersonInfoCommand.cs" />
+    <Compile Include="commands\PrintFioAllContactsCommand.cs" />
+    <Compile Include="commands\PrintInfoAllContactsCommand.cs" />
+    <Compile Include="database\Storage.cs" />
+    <Compile Include="entity\AbstractContactChannel.cs" />
+    <Compile Include="entity\Address.cs" />
+    <Compile Include="entity\Email.cs" />
+    <Compile Include="entity\Person.cs" />
+    <Compile Include="entity\Phone.cs" />
+    <Compile Include="pageprocess\AbstractPageProcess.cs" />
+    <Compile Include="pageprocess\EditPepsonPageProcess.cs" />
+    <Compile Include="pageprocess\ExitPageProcess.cs" />
+    <Compile Include="pageprocess\IPageProcess.cs" />
+    <Compile Include="pageprocess\MainPageProcess.cs" />
+    <Compile Include="pageprocess\PersonAddPageProcess.cs" />
+    <Compile Include="pageprocess\PersonDeletePageProcess.cs" />
+    <Compile Include="pageprocess\PersonEditPageProcess.cs" />
+    <Compile Include="pageprocess\PersonInfoPageProcess.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
