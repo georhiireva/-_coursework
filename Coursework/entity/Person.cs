@@ -51,34 +51,34 @@ namespace Coursework.entity {
             obj.Phones = new List<Phone> ();
 
             while (true) {
-                var phone = Phone.BuildFromConsole (new Phone ());
+                var phone = Phone.BuildFromConsole (new Phone ()) as Phone;
                 if (phone == null)
                     break;
-                obj.Phones.ToList ().Add (phone);
+                (obj.Phones as List<Phone>).Add (phone);
             }
 
             obj.Emails = new List<Email> ();
 
             while (true) {
-                var email = Phone.BuildFromConsole (new Email ());
+                var email = Email.BuildFromConsole (new Email ()) as Email;
                 if (email == null)
                     break;
-                obj.Emails.ToList ().Add (email);
+                (obj.Emails as List<Email>).Add (email);
             }
 
             obj.Addresses = new List<Address> ();
 
             while (true) {
-                var address = Phone.BuildFromConsole (new Address ());
+                var address = Email.BuildFromConsole (new Address ()) as Address;
                 if (address == null)
                     break;
-                obj.Addresses.ToList ().Add (address);
+                (obj.Addresses as List<Address>).Add (address);
             }
 
             Console.WriteLine ();
             Console.WriteLine ("Введите комментарий");
             Console.WriteLine ();
-            obj.LastName = Console.ReadLine ();
+            obj.Remark = Console.ReadLine ();
 
             return obj;
         }
