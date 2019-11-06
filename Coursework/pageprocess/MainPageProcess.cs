@@ -1,5 +1,6 @@
 ﻿using Coursework.commands;
 using Coursework.database;
+using Coursework.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace Coursework.pageprocess {
         
         public override void Run () {
             // Главное меню
-            PrintHello ();
-            PrintCommands ();
-            HandleCommand ();
+            while (true) {
+                ConsoleUtil.PrintHeader(Name);
+                PrintCommands();
+                HandleCommand();
+            }
             //Сохранить данные в документ
             Storage.Instance.SaveToXml ();
         }

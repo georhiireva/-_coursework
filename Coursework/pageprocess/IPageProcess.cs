@@ -16,9 +16,5 @@ namespace Coursework.pageprocess {
 
         // Метод, который выводит на экран доступные для текущего экрана коммнады
         void PrintCommands ();
-
-        void PrintHello ();
-
-        
     }
 }

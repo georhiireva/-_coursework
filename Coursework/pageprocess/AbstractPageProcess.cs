@@ -1,5 +1,6 @@
 ﻿using Coursework.commands;
 using Coursework.database;
+using Coursework.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,33 +19,21 @@ namespace Coursework.pageprocess {
 
         public abstract void Run ();
 
-
-        public void PrintHello () {
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
-            Console.WriteLine (Name);
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
-        }
-
         public void PrintCommands () {
-            Console.WriteLine ();
-            Console.WriteLine ("Список доступных комманд");
-            Console.WriteLine ();
+
+            ConsoleUtil.PrintHeader("Список доступных команд");
+
             foreach (var entry in Commands)
                 Console.WriteLine ($"{entry.Key}. {entry.Value}");
             Console.WriteLine ();
         }
 
         public void HandleCommand () {
-            Console.WriteLine ();
-            Console.WriteLine ("Введите цифру, чтобы выполнить соответствующую команду");
-            Console.WriteLine ();
+
+            var userInput = ConsoleUtil.ReadFromConsole("Введите цифру, чтобы выполнить соответствующую команду");
 
             int key;
-            if (!int.TryParse (Console.ReadLine (), out key)) {
+            if (!int.TryParse (userInput, out key)) {
                 Console.WriteLine ();
                 Console.WriteLine ("Вы ошиблись при вводе, попробуйте еще раз");
                 Console.WriteLine ();
@@ -54,6 +43,5 @@ namespace Coursework.pageprocess {
             Commands[key].Process ();
             Console.WriteLine ();
         }
-            
     }
 }

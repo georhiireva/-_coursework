@@ -61,8 +61,8 @@
     <Compile Include="entity\Email.cs" />
     <Compile Include="entity\Person.cs" />
     <Compile Include="entity\Phone.cs" />
+    <Compile Include="helpers\ConsoleUtil.cs" />
     <Compile Include="pageprocess\AbstractPageProcess.cs" />
-    <Compile Include="pageprocess\EditPepsonPageProcess.cs" />
     <Compile Include="pageprocess\ExitPageProcess.cs" />
     <Compile Include="pageprocess\IPageProcess.cs" />
     <Compile Include="pageprocess\MainPageProcess.cs" />

@@ -1,5 +1,6 @@
 ﻿using Coursework.database;
 using Coursework.entity;
+using Coursework.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Coursework.pageprocess {
 
         public PersonAddPageProcess (string name) : base (name) { }
         public override void Run () {
-            PrintHello ();
+            ConsoleUtil.PrintHeader(Name);
             Storage.Instance.Contacts.Add (Person.BuildFromConsole (new Person ()));
         }
     }

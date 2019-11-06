@@ -1,4 +1,5 @@
 ﻿using Coursework.commands;
+using Coursework.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Coursework.pageprocess {
         }
 
         public override void Run () {
-            PrintHello ();
+            ConsoleUtil.PrintHeader(Name);
             PrintCommands ();
             HandleCommand ();
         }
