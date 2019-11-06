@@ -6,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coursework.commands {
-    class ExitCommand : AbstractCommand {
+    class ExitCommand : AbstractSimpleCommand {
 
-        public ExitCommand (IPageProcess pageProcess) : base (pageProcess) { }
+        public ExitCommand (string header) {
+            Name = header;
+        }
 
         public override bool Process () => false;
     }

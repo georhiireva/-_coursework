@@ -34,7 +34,7 @@ namespace Coursework.pageprocess {
                 {2, new PersonAddCommand(new PersonAddPageProcess("Добавление контакта")) },
                 {3, new PersonEditCommand(new PersonEditPageProcess("Редактирование контакта")) },
                 {4, new PersonDeleteCommand(new PersonDeletePageProcess("Удаление контакта")) },
-                {5, new ExitCommand(new ExitPageProcess("Выход")) }
+                {5, new ExitCommand("Выход") }
             };
         }
     }

@@ -63,7 +63,6 @@
     <Compile Include="entity\Phone.cs" />
     <Compile Include="helpers\ConsoleUtil.cs" />
     <Compile Include="pageprocess\AbstractPageProcess.cs" />
-    <Compile Include="pageprocess\ExitPageProcess.cs" />
     <Compile Include="pageprocess\IPageProcess.cs" />
     <Compile Include="pageprocess\MainPageProcess.cs" />
     <Compile Include="pageprocess\PersonAddPageProcess.cs" />

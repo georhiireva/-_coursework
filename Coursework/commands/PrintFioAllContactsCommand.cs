@@ -14,12 +14,13 @@ namespace Coursework.commands {
             Name = "Список имен и фамилий всех контактов";
         }
 
-        public override void Process () {
+        public override bool Process () {
             var contacts = Storage.Instance.Contacts;
             PrintHello ();
             foreach (var contact in contacts)
                 Console.WriteLine ($"{contact.FirstName} {contact.LastName}");
             Console.WriteLine ();
+            return true;
         }
     }
 }

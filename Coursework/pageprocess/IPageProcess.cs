@@ -12,7 +12,7 @@ namespace Coursework.pageprocess {
         void Run ();
 
         // Метод, который реализует ввод ключа пользователем и затем выполняет соответствующую команду
-        void HandleCommand ();
+        bool HandleCommand ();
 
         // Метод, который выводит на экран доступные для текущего экрана коммнады
         void PrintCommands ();

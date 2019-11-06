@@ -12,7 +12,7 @@ namespace Coursework.commands {
         public Storage Storage { get; set; }
 
 
-        public abstract void Process ();
+        public abstract bool Process ();
 
         public override string ToString () => Name;
 

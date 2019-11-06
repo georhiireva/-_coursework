@@ -13,12 +13,13 @@ namespace Coursework.commands {
         public PrintInfoAllContactsCommand () {
             Name = "Информация о всех контактах";
         }
-        public override void Process () {
+        public override bool Process () {
             var contacts = Storage.Instance.Contacts;
             PrintHello ();
             foreach (var contact in contacts)
                 Console.WriteLine (contact);
             Console.WriteLine ();
+            return true;
         }
     }
 }

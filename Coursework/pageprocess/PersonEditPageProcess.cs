@@ -22,12 +22,14 @@ namespace Coursework.pageprocess {
             else {
                 ConsoleUtil.PrintHeader($"Редактирование контакта - {contact.FirstName} {contact.LastName}");
                 PrintCommands();
+
+                HandleCommand();
             }
         }
 
         public PersonEditPageProcess (string name) : base (name) {
             Commands = new Dictionary<int, ICommand>() {
-
+                {7, new ExitCommand("Вернуться на главный экран") }
             };
         }
 
