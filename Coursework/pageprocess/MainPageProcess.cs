@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 
 namespace Coursework.pageprocess {
     class MainPageProcess : AbstractPageProcess {
-        
+
         public override void Run () {
             // Главное меню
-            while (true) {
+            var needContinue = true;
+            
+            while (needContinue) {
                 ConsoleUtil.PrintHeader(Name);
                 PrintCommands();
-                HandleCommand();
+                needContinue = HandleCommand();
             }
             //Сохранить данные в документ
             Storage.Instance.SaveToXml ();

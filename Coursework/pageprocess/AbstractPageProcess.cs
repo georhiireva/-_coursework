@@ -28,20 +28,19 @@ namespace Coursework.pageprocess {
             Console.WriteLine ();
         }
 
-        public void HandleCommand () {
+        public bool HandleCommand () {
 
             var userInput = ConsoleUtil.ReadFromConsole("Введите цифру, чтобы выполнить соответствующую команду");
 
             int key;
             if (!int.TryParse (userInput, out key)) {
-                Console.WriteLine ();
-                Console.WriteLine ("Вы ошиблись при вводе, попробуйте еще раз");
-                Console.WriteLine ();
+                ConsoleUtil.PrintHeader("Вы ошиблись при вводе, попробуйте еще раз");
                 HandleCommand ();
             }
+
+            var command = Commands[key];
             
-            Commands[key].Process ();
-            Console.WriteLine ();
+            return command.Process();
         }
     }
 }

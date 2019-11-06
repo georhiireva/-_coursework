@@ -9,7 +9,8 @@ namespace Coursework.commands {
 
         string Name { get; set; }
         // Метод выполняет задачу, которую требует выполнить пользователь
-        void Process ();
+        // Все команды по умолчанию позвращают true, и только команда Exit возвращает false
+        bool Process ();
 
 
     }

@@ -9,7 +9,7 @@ namespace Coursework.pageprocess {
 
         public ExitPageProcess (string name) : base (name) { }
         public override void Run () {
-            throw new NotImplementedException ();
+            MainPageProcess.Ne
         }
     }
 }

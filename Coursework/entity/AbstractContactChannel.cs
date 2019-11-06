@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coursework.helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,37 +18,20 @@ namespace Coursework.entity {
 
         public AbstractContactChannel () { }
         public static AbstractContactChannel BuildFromConsole (AbstractContactChannel obj) {
-            PrintHello ($"Добавление нового {obj.RusName}");
-            Console.WriteLine ("Для выхода введите -1 в любое время");
-            Console.WriteLine ();
-            Console.WriteLine ("Введите тип");
-            Console.WriteLine ();
+            ConsoleUtil.PrintHeader($"Добавление нового {obj.RusName}");
+            ConsoleUtil.PrintHeader("Для выхода введите -1 в любое время");
 
-            var type = Console.ReadLine ();
+            var type = ConsoleUtil.ReadFromConsole("Введите тип");
             if (type == "-1")
                 return null;
             obj.Type = type;
 
-            Console.WriteLine ();
-            Console.WriteLine ("Введите значение");
-            Console.WriteLine ();
-
-            var value = Console.ReadLine ();
+            var value = ConsoleUtil.ReadFromConsole("Введите значение");
             if (value == "-1")
                 return null;
             obj.Value = value;
 
             return obj;
-        }
-
-        public static void PrintHello (string name) {
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
-            Console.WriteLine (name);
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
         }
     }
 }

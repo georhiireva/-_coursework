@@ -22,7 +22,10 @@ namespace Coursework.commands {
             Name = name;
         }
 
-        public virtual void Process () => PageProcess.Run ();
+        public virtual bool Process () {
+            PageProcess.Run();
+            return true;
+        } 
 
         public override string ToString () => Name;
     }
