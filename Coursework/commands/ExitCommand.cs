@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace Coursework.commands {
     class ExitCommand : AbstractSimpleCommand {
 
-        public ExitCommand (string header) {
-            Name = header;
-        }
+        public ExitCommand (string header) : base (header) { }
 
         public override bool Process () => false;
     }

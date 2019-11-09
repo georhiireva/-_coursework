@@ -52,6 +52,12 @@
     <Compile Include="commands\PersonAddCommand.cs" />
     <Compile Include="commands\PersonDeleteCommand.cs" />
     <Compile Include="commands\PersonEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\AddressEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\BirthDateEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\EmailsEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\NameEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\PhonesEditCommand.cs" />
+    <Compile Include="commands\PersonEditCommands\RemarkEditCommand.cs" />
     <Compile Include="commands\PersonInfoCommand.cs" />
     <Compile Include="commands\PrintFioAllContactsCommand.cs" />
     <Compile Include="commands\PrintInfoAllContactsCommand.cs" />

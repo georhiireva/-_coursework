@@ -11,19 +11,13 @@ namespace Coursework.commands {
 
         public Storage Storage { get; set; }
 
+        public AbstractSimpleCommand (string header) => Name = header;
+
+        public AbstractSimpleCommand () { }
+
 
         public abstract bool Process ();
 
         public override string ToString () => Name;
-
-        public void PrintHello () {
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
-            Console.WriteLine (Name);
-            Console.WriteLine ();
-            Console.WriteLine ("*****************");
-            Console.WriteLine ();
-        }
     }
 }

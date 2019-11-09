@@ -1,4 +1,5 @@
 ﻿using Coursework.database;
+using Coursework.helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,11 @@ namespace Coursework.commands {
             Name = "Список имен и фамилий всех контактов";
         }
 
+        public PrintFioAllContactsCommand (string header) : base (header) { }
+
         public override bool Process () {
             var contacts = Storage.Instance.Contacts;
-            PrintHello ();
+            ConsoleUtil.PrintHeader(Name);
             foreach (var contact in contacts)
                 Console.WriteLine ($"{contact.FirstName} {contact.LastName}");
             Console.WriteLine ();

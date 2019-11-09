@@ -1,4 +1,5 @@
 ﻿using Coursework.commands;
+using Coursework.commands.PersonEditCommands;
 using Coursework.database;
 using Coursework.entity;
 using Coursework.helpers;
@@ -29,7 +30,13 @@ namespace Coursework.pageprocess {
 
         public PersonEditPageProcess (string name) : base (name) {
             Commands = new Dictionary<int, ICommand>() {
-                {7, new ExitCommand("Вернуться на главный экран") }
+                {1, new NameEditCommand ("Редактировать имя и фамилию") },
+                {2, new BirthDateEditCommand ("Редактировать дату рождения") },
+                {3, new PhonesEditCommand ("Редактировать список телефонов") },
+                {4, new EmailsEditCommand ("Редактировать список адресов электронной почты") },
+                {5, new AddressEditCommand ("Редактировать список почтовых адресов") },
+                {6, new RemarkEditCommand ("Редактировать комментарий") },
+                {7, new ExitCommand ("Вернуться на главный экран") }
             };
         }
 

@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coursework.commands.PersonEditCommands {
-    class EmailsEditCommand {
+    class EmailsEditCommand : AbstractSimpleCommand {
+        public override bool Process () {
+            throw new NotImplementedException();
+        }
+
+        public EmailsEditCommand (string header) : base (header) { }
     }
 }

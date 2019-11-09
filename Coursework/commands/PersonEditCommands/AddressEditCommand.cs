@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coursework.commands.PersonEditCommands {
-    class AddressEditCommand {
+    class AddressEditCommand : AbstractSimpleCommand {
+        public override bool Process () {
+            throw new NotImplementedException();
+        }
+
+        public AddressEditCommand (string header) : base (header) { }
     }
 }

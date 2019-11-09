@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coursework.helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,19 +32,13 @@ namespace Coursework.entity {
         public string Remark { get; set; }
 
         public static Person BuildFromConsole (Person obj) {
-            Console.WriteLine ();
-            Console.WriteLine ("Введите имя");
-            Console.WriteLine ();
+            ConsoleUtil.PrintHeader("Введите имя");
             obj.FirstName = Console.ReadLine ();
 
-            Console.WriteLine ();
-            Console.WriteLine ("Введите фамилию");
-            Console.WriteLine ();
+            ConsoleUtil.PrintHeader("Введите фамилию");
             obj.LastName = Console.ReadLine ();
 
-            Console.WriteLine ();
-            Console.WriteLine ("Введите дату рождения (yyyy-mm-dd");
-            Console.WriteLine ();
+            ConsoleUtil.PrintHeader("Введите дату рождения (yyyy-mm-dd");
             DateTime birthDate;
             DateTime.TryParse (Console.ReadLine (), out birthDate);
             obj.BirthDate = birthDate;
