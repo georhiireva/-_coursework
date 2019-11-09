@@ -32,51 +32,68 @@ namespace Coursework.entity {
         public string Remark { get; set; }
 
         public static Person BuildFromConsole (Person obj) {
-            ConsoleUtil.PrintHeader("Введите имя");
-            obj.FirstName = Console.ReadLine ();
 
-            ConsoleUtil.PrintHeader("Введите фамилию");
-            obj.LastName = Console.ReadLine ();
-
-            ConsoleUtil.PrintHeader("Введите дату рождения (yyyy-mm-dd");
-            DateTime birthDate;
-            DateTime.TryParse (Console.ReadLine (), out birthDate);
-            obj.BirthDate = birthDate;
-
-            obj.Phones = new List<Phone> ();
-
-            while (true) {
-                var phone = Phone.BuildFromConsole (new Phone ()) as Phone;
-                if (phone == null)
-                    break;
-                (obj.Phones as List<Phone>).Add (phone);
-            }
-
-            obj.Emails = new List<Email> ();
-
-            while (true) {
-                var email = Email.BuildFromConsole (new Email ()) as Email;
-                if (email == null)
-                    break;
-                (obj.Emails as List<Email>).Add (email);
-            }
-
-            obj.Addresses = new List<Address> ();
-
-            while (true) {
-                var address = Email.BuildFromConsole (new Address ()) as Address;
-                if (address == null)
-                    break;
-                (obj.Addresses as List<Address>).Add (address);
-            }
-
-            Console.WriteLine ();
-            Console.WriteLine ("Введите комментарий");
-            Console.WriteLine ();
-            obj.Remark = Console.ReadLine ();
-
+            obj.FirstName = BuildFirstName ();
+            obj.LastName = BuildLastName ();
+            obj.BirthDate = BuildBirthDate ();
+            obj.Phones = BuildPhoneList ();
+            obj.Emails = BuildEmailList ();
+            obj.Addresses = BuildAddressList ();
+            obj.Remark = BuildRemark ();
             return obj;
         }
+
+        public static string BuildFirstName () {
+            ConsoleUtil.PrintHeader ("Введите имя");
+            return Console.ReadLine ();
+        }
+
+        public static string BuildLastName () {
+            ConsoleUtil.PrintHeader ("Введите фамилию");
+            return Console.ReadLine ();
+        }
+
+        public static DateTime BuildBirthDate () {
+            ConsoleUtil.PrintHeader ("Введите дату рождения (yyyy-mm-dd");
+            DateTime.TryParse (Console.ReadLine (), out DateTime birthDate);
+            return birthDate;
+        }
+
+        public static  IList<Phone> BuildPhoneList () {
+            var phoneList = new List<Phone> ();
+            while (true) {
+                if (!(Phone.BuildFromConsole (new Phone ()) is Phone phone))
+                    break;
+                phoneList.Add (phone);
+            }
+            return phoneList;
+        }
+
+        public static IList<Email> BuildEmailList () {
+            var emailList = new List<Email> ();
+            while (true) {
+                if (!(Email.BuildFromConsole (new Email ()) is Email email))
+                    break;
+                emailList.Add (email);
+            }
+            return emailList;
+        }
+
+        public static IList<Address> BuildAddressList () {
+            var addressList = new List<Address> ();
+            while (true) {
+                if (!(Address.BuildFromConsole (new Address ()) is Address address))
+                    break;
+                addressList.Add (address);
+            }
+            return addressList;
+        }
+
+        public static string BuildRemark () {
+            ConsoleUtil.PrintHeader ("Введите комментарий");
+            return Console.ReadLine ();
+        }
+
 
         public override string ToString () {
             StringBuilder phoneList = new StringBuilder ();

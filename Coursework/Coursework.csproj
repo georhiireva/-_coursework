@@ -65,6 +65,7 @@
     <Compile Include="entity\AbstractContactChannel.cs" />
     <Compile Include="entity\Address.cs" />
     <Compile Include="entity\Email.cs" />
+    <Compile Include="entity\fabrics\EntityCreator.cs" />
     <Compile Include="entity\Person.cs" />
     <Compile Include="entity\Phone.cs" />
     <Compile Include="helpers\ConsoleUtil.cs" />
