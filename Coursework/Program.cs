@@ -11,8 +11,6 @@ namespace Coursework {
         static void Main (string[] args) {
             ConsoleUtil.PrintHeader ("Добро пожаловать!");
             new MainPageProcess ("ГЛАВНОЕ МЕНЮ").Run ();
-
-            Console.ReadKey ();
         }
     }
 }
