@@ -22,5 +22,11 @@ namespace Coursework.helpers {
             Console.WriteLine("*****************");
             Console.WriteLine();
         }
+
+        public static void SimplePrint (string header) {
+            Console.WriteLine ();
+            Console.WriteLine (header);
+            Console.WriteLine ();
+        }
     }
 }

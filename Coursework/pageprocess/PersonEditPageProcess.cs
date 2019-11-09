@@ -12,43 +12,38 @@ using System.Threading.Tasks;
 namespace Coursework.pageprocess {
     class PersonEditPageProcess : AbstractPageProcess {
 
+        private Person Contact { get; set; }
+
         public override void Run () {
-            ConsoleUtil.PrintHeader(Name);
+            ConsoleUtil.PrintHeader (Name);
+            Contact = StorageUtil.SearchContactByConsole ();
 
-            var contact = SearchContactByConsole();
-            
-            if (contact == null) {
-                ConsoleUtil.PrintHeader("Контакт не найден");
-            }
-            else {
-                ConsoleUtil.PrintHeader($"Редактирование контакта - {contact.FirstName} {contact.LastName}");
-                PrintCommands();
-
-                HandleCommand();
-            }
-        }
-
-        public PersonEditPageProcess (string name) : base (name) {
-            Commands = new Dictionary<int, ICommand>() {
-                {1, new NameEditCommand ("Редактировать имя и фамилию") },
-                {2, new BirthDateEditCommand ("Редактировать дату рождения") },
-                {3, new PhonesEditCommand ("Редактировать список телефонов") },
-                {4, new EmailsEditCommand ("Редактировать список адресов электронной почты") },
-                {5, new AddressEditCommand ("Редактировать список почтовых адресов") },
-                {6, new RemarkEditCommand ("Редактировать комментарий") },
+            Commands = new Dictionary<int, ICommand> () {
+                {1, new NameEditCommand ("Редактировать имя и фамилию", Contact) },
+                {2, new BirthDateEditCommand ("Редактировать дату рождения", Contact) },
+                {3, new PhonesEditCommand ("Редактировать список телефонов", Contact) },
+                {4, new EmailsEditCommand ("Редактировать список адресов электронной почты", Contact) },
+                {5, new AddressEditCommand ("Редактировать список почтовых адресов", Contact) },
+                {6, new RemarkEditCommand ("Редактировать комментарий", Contact) },
                 {7, new ExitCommand ("Вернуться на главный экран") }
             };
+
+            if (Contact == null) {
+                ConsoleUtil.PrintHeader ("Контакт не найден");
+            }
+            else {
+                while (true) {
+                    ConsoleUtil.PrintHeader ($"Редактирование контакта - {Contact.FirstName} {Contact.LastName}");
+                    PrintCommands ();
+
+                    if (!HandleCommand ())
+                        break;
+                }
+            }
+
+            
         }
 
-        private Person SearchContactByConsole () {
-            var firstName = ConsoleUtil.ReadFromConsole("Введите имя контакта");
-            var lastName = ConsoleUtil.ReadFromConsole("Введите фамилию контакта");
-            return FindContact(firstName, lastName);
-        }
-
-        private Person FindContact (string firstName, string lastName) =>
-            Storage.Instance.Contacts
-                .Where(contact => contact.FirstName == firstName && contact.LastName == lastName)
-                .FirstOrDefault();
+        public PersonEditPageProcess (string name) : base (name) { }
     }
 }

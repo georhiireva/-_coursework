@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Coursework.database;
+using Coursework.helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +11,9 @@ namespace Coursework.pageprocess {
 
         public PersonDeletePageProcess (string name) : base (name) { }
         public override void Run () {
-            throw new NotImplementedException ();
+            var contact = StorageUtil.SearchContactByConsole ();
+            Storage.Instance.Contacts.Remove (contact);
+            ConsoleUtil.SimplePrint ($"Контакт {contact.FirstName} {contact.LastName} успешно удален!");
         }
     }
 }

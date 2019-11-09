@@ -62,6 +62,7 @@
     <Compile Include="commands\PrintFioAllContactsCommand.cs" />
     <Compile Include="commands\PrintInfoAllContactsCommand.cs" />
     <Compile Include="database\Storage.cs" />
+    <Compile Include="database\StorageUtil.cs" />
     <Compile Include="entity\AbstractContactChannel.cs" />
     <Compile Include="entity\Address.cs" />
     <Compile Include="entity\Email.cs" />
